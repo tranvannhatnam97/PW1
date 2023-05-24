@@ -10,17 +10,17 @@ exports.LoginPage= class LoginPage{
         await this.page.goto('https://test-org.ichiba.net/vi/')
     }
     async login(username, password){
-        // await this.page.waitForLoadState('domcontentloaded')
         await this.username_textbox.fill(username)
+        await expect(this.username_textbox).toHaveValue(username)
         await this.password_textbox.fill(password)
+        await expect(this.password_textbox).toHaveValue(password)
+        // await this.page.waitForTimeout(3000)
         await this.login_button.click({"force":true})
-        // await this.page.waitForNavigation({url: 'https://test-org.ichiba.net/vi/'})
-        // await this.page.waitForURL('https://test-org.ichiba.net/vi/')
-        // await this.page.navigate('https://test-org.ichiba.net/vi/')
+        // await this.page.waitForTimeout(5000)
+        // await this.page.waitForLoadState('domcontentloaded')
     }
     async expect_login_success(){
-        // await this.page.waitForTimeout(3000)
-        // await this.page.waitForLoadState('domcontentloaded')
         await expect(this.page.getByText(/Account Information/)).toHaveCount(1)
+        
     }
 }
