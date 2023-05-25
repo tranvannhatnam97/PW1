@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.33.0"
-  }
+    "@playwright/test": "^1.33.0",
+    "basetag": "^2.1.0"
+  },
+  "base_path":"C:/Users/hi/Documents/PlaywrightProjects/PWProject_1/"
 }
