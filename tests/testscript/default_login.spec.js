@@ -1,39 +1,22 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+const { test } = require('@playwright/test');
 import { LoginPage } from "$/model/default_login_model"
 const req = require("$/tools/data-process/json_parse")
 
+let users_data = req.read_json_from_file('./test-data/account-manager/login.json')["testcases"]
+console.log(users_data);
+test.describe("Login Test", async () => {
 
-test.describe("Login Test", (users_data) => {
-  test.beforeEach(async () => {
-    // let users_data = req.read_json_from_file('./test-data/account-manager/login.json')
-    users_data = await req.read_json_from_file('./test-data/account-manager/login.json')['data']
-    await console.log(users_data)
+  await users_data.forEach(element=>{
+    test(element['TC_id'], async({page})=>{
+      await console.log(page);
+      const loginInst = new LoginPage(page)
+      await loginInst.gotoLoginPage()
+      await loginInst.login(element['input']['username'], element['input']['password'])
+      await loginInst.expect_login_success()
+    })
   })
 
-  // for (const dt of ){
-  //   test(dt['TC_id'], async ({ page }) => {
-  //         await page.goto('https://test-org.ichiba.net/vi/')
-  //       })
-  // }
-
-  // users_data.foreach(element => {
-  //   test(element['TC_id'], async ({ page }) => {
-  //     await page.goto('https://test-org.ichiba.net/vi/')
-  //   })
-  // });
-  // for (const dt of outer){
-  //   test(outer['TC_id'], async({page})=>{
-  //     await page.goto('https://test-org.ichiba.net/vi/')
-  //   })
-  // }
-
 })
-  // test(':Login by default ', async ({ page }) => {
-  //   const loginInst = new LoginPage(page)
-  //   await loginInst.gotoLoginPage()
-  //   await loginInst.login(data.test_data.username, data.test_data.password)
-  //   await loginInst.expect_login_success()
-  // })
 
 

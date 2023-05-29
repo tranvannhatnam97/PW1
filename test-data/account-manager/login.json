@@ -2,9 +2,10 @@
     "description":{
         "positive": true,
         "tags": [],
+        "scenario": "Test feature login",
         "jira_id":""
     },
-    "data":[
+    "testcases":[
         {
             "TC_id": "TC001",
             "input":{
