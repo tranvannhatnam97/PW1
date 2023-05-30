@@ -12,9 +12,9 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   expect: {
-    timeout: 90 * 1000,
+    timeout: 40 * 1000,
   },
-  timeout : 100 * 1000,
+  timeout : 60 * 1000,
   // use: {
   //   actionTimeout: 20 * 1000,
   // },
@@ -22,7 +22,8 @@ module.exports = defineConfig({
   // testDir: './tests',
   // testDir: './tests-examples',
   // testDir: './tests/testscript',
-  testDir: './tests/testscript/account',
+  // testDir: './tests/testscript/account',
+  testDir: './tests/testscript/crawler',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -52,15 +53,15 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
