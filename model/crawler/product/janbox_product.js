@@ -21,12 +21,12 @@ exports.YahooAuctionProductClonePage = class YahooAuctionProductOriginPage{
         // await this.page.locator('#js-close').click()
     }
     async get_product_name(){
-        this.product_name_text = this.page.locator('.product-details')
+        this.product_name_text = this.page.locator('.product-details>h2')
         this.product_name = (await this.product_name_text.innerText()).valueOf()
     }
     async get_current_price(){
-        // this.current_price_text = this.page.locator('xpath=//div[@class="price"]/span[@class="current"] >> nth=0')
-        // this.current_price = (await this.current_price_text.innerText()).valueOf()
+        this.current_price_text = this.page.locator('.price')
+        this.current_price = (await this.current_price_text.innerText()).valueOf().replace('Current Price: ¥ ', '')
     }
     
     

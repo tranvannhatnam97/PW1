@@ -28,7 +28,7 @@ exports.YahooAuctionProductOriginPage = class YahooAuctionProductOriginPage{
         this.current_price_text = await this.page.locator('xpath=//dd[@class="Price__value"][1]')
         this.tax_price_text = this.current_price_text.locator('xpath=/*[1]')
         this.tax_price = (await this.tax_price_text.innerText()).valueOf()
-        this.current_price = (await this.current_price_text.innerText()).valueOf().replace(this.tax_price, '').replace('円', '').replace(',', '.')
+        this.current_price = (await this.current_price_text.innerText()).valueOf().replace(this.tax_price, '').replace('円', '').replace(',', '')
         this.current_price = parseFloat(this.current_price, 10)
     }
 }
