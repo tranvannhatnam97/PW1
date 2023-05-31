@@ -1,0 +1,27 @@
+{
+    "description":{
+        "positive": true,
+        "tags": [],
+        "scenario": "Test feature login",
+        "jira_id":""
+    },
+    "testcases":[
+        {
+            "TC_id": "TC001",
+            "input":{
+                "username":"quynhdtb@ichiba.vn",
+                "password":"Quynh123@"
+            },
+            "expect":{}
+        },
+        {
+            "TC_id": "TC002",
+            "input":{
+                "username":"mongtoria1@gmail.com",
+                "password":"Cr@zyloop1"
+            },
+            "expect":{}
+        }
+    ]
+}
+

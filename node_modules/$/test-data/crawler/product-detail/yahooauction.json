@@ -1,0 +1,33 @@
+{
+    "description":{
+        "positive": true,
+        "tags": [],
+        "scenario": "Test product detail crawler",
+        "base_url": "https://page.auctions.yahoo.co.jp/jp/auction/",
+        "jira_id":""
+    },
+    "testcases":[
+        {
+            "TC_id": "TC101",
+            "input":{
+                "product_id": "r1093541577"
+            },
+            "expect":{
+                "page_exist": true,
+                "full_element_exist": true,
+                "equal_value": true
+            }
+        },
+        {
+            "TC_id": "TC102",
+            "input":{
+                "product_id": "h1093546132"
+            },
+            "expect":{
+                "page_exist": true,
+                "full_element_exist": true,
+                "equal_value": true
+            }
+        }
+    ]
+}
